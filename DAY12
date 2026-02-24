@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    int choice = 1;   // 1 = User Input, 2 = Predefined Values
+
+    int m, n;
+
+    if(choice == 1) {
+        scanf("%d %d", &m, &n);
+        int matrix[m][n];
+
+        for(int i = 0; i < m; i++)
+            for(int j = 0; j < n; j++)
+                scanf("%d", &matrix[i][j]);
+
+        if(m != n) {
+            printf("Not a Symmetric Matrix");
+            return 0;
+        }
+
+        for(int i = 0; i < m; i++)
+            for(int j = i + 1; j < n; j++)
+                if(matrix[i][j] != matrix[j][i]) {
+                    printf("Not a Symmetric Matrix");
+                    return 0;
+                }
+
+        printf("Symmetric Matrix");
+    }
+
+    else {
+        m = 3;
+        n = 3;
+
+        int matrix[3][3] = {
+            {1, 2, 3},
+            {2, 4, 5},
+            {3, 5, 6}
+        };
+
+        if(m != n) {
+            printf("Not a Symmetric Matrix");
+            return 0;
+        }
+
+        for(int i = 0; i < m; i++)
+            for(int j = i + 1; j < n; j++)
+                if(matrix[i][j] != matrix[j][i]) {
+                    printf("Not a Symmetric Matrix");
+                    return 0;
+                }
+
+        printf("Symmetric Matrix");
+    }
+
+    return 0;
+}
